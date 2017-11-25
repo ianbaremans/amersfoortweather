@@ -21,7 +21,7 @@ print("Today is "+today_date+". The forecast for today is: ")
 print(forecast["currently"]["summary"])
 print(" -"*int(len(forecast["currently"]["summary"])/2))
 
-for num in range(unixtime, unixtime+604800, 86400):
+for num in range(unixtime+86400, unixtime+604800, 86400):
     time_response = requests.get(time_machine.format(secret_key, latitude, longitude, num))
     future = time_response.json()
     day = datetime.datetime.fromtimestamp(num).strftime("%A")
